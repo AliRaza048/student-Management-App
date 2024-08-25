@@ -3,6 +3,49 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import Badge from "@mui/material/Badge";
+import Avatar from "@mui/material/Avatar";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import Box from "@mui/material/Box";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import SettingsIcon from "@mui/icons-material/Settings";
+import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import LogoutIcon from "@mui/icons-material/Logout";
+const settings = [
+  {
+    id: 1,
+    name: "View Profile",
+    icon: <AccountCircleOutlinedIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+  },
+  {
+    id: 2,
+    name: "Account Setting",
+    icon: <SettingsIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+  },
+  {
+    id: 3,
+    name: "Notifications",
+    icon: <NotificationsIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+  },
+  {
+    id: 4,
+    name: "Swich Account",
+    icon: <SwitchAccountIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+  },
+  {
+    id: 5,
+    name: "Help Center",
+    icon: <HelpOutlineIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+  },
+  {
+    id: 6,
+    name: "Logout",
+    icon: <LogoutIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+  },
+];
 
 const languageSelector = [
   {
@@ -56,7 +99,7 @@ const languageSelector = [
     img: (
       <img
         src={require("../../assets/turkey-flag-icon.png")}
-        className=" language__selector__image"
+        className="language__selector__image"
       />
     ),
   },
@@ -64,12 +107,26 @@ const languageSelector = [
 
 const Header = () => {
   const defaultLanguage = languageSelector.find((item) => item.id === 1);
+  const [selectLanguage, setSelectLanguage] = useState(
+    defaultLanguage.img.props.src
+  );
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [selectLanguage, setSelectLanguage] = useState(defaultLanguage.img.props.src);
-
+  const [avatarUser, setAvatarUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const handleAvatarOpenMenu = (event) => {
+    setAvatarUser(event.currentTarget);
+  };
+
+  const handleAvatarCloseUserMenu = () => {
+    setAvatarUser(null);
   };
 
   const handleSelectLanguage = (id) => {
@@ -78,16 +135,12 @@ const Header = () => {
     if (id == selectFalg.id) {
       return setSelectLanguage(selectFalg.img.props.src);
     } else {
-      alert("empty");
+      setSelectLanguage("");
     }
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <nav className="bg-white p-4 flex items-center justify-between">
+    <nav className="bg-white p-6 flex items-center justify-between">
       <section className="flex items-center w-1/2 justify-between">
         <ul className="flex items-center gap-3">
           <img
@@ -104,8 +157,8 @@ const Header = () => {
           <SearchOutlinedIcon className="header__Input__icon" />
         </aside>
       </section>
-      <section className="flex items-center">
-        <div className="p-2  language__selector">
+      <section className="flex items-center gap-4">
+        <div className="p-4 language__selector">
           <button onClick={handleOpenUserMenu}>
             <img src={selectLanguage} className="language__selector__image" />
           </button>
@@ -142,6 +195,69 @@ const Header = () => {
             ))}
           </Menu>
         </div>
+        <div className="p-4  language__selector">
+          <Badge
+            badgeContent={1}
+            color="error"
+          >
+            <NotificationsIcon sx={{ color: "#bdb3b3e7" }} />
+          </Badge>
+        </div>
+        <Box>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleAvatarOpenMenu} sx={{ p: 0 }}>
+              <Avatar
+                alt="Remy Sharp"
+                src={require("../../assets/Profile_Image.jpg")}
+                className="avatar__menu__image"
+              />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{mt: "60px" }}
+            id="menu-appbar"
+            anchorEl={avatarUser}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(avatarUser)}
+            onClose={handleAvatarCloseUserMenu}
+          >
+            <MenuItem
+              onClick={handleAvatarCloseUserMenu}
+              className="avatar__menu"
+            >
+              <section className="flex gap-3 items-center p-2 ml-1.5">
+                <Avatar
+                  alt="Remy Sharp"
+                  src={require("../../assets/Profile_Image.jpg")}
+                  className="avatar__menu__image"
+                />
+                <div>
+                  <h4 className="font-bold text-sm">Alex Stanton</h4>
+                  <p className="text-xs	">alex@example.com</p>
+                </div>
+              </section>
+              <div className="border"></div>
+              {settings.map((item) => (
+                <section className="p-2 ml-1.5">
+                  <div className="flex items-center gap-4">
+                    {item.icon}
+                    <Typography sx={{ color: "rgb(97 99 124)" }}>
+                      {item.name}
+                    </Typography>
+                  </div>
+                </section>
+              ))}
+            </MenuItem>
+          </Menu>
+        </Box>
       </section>
     </nav>
   );
