@@ -1,0 +1,13 @@
+.sidebar{
+    background-color: white;
+    &:hover{
+        overflow-y: scroll;
+    }
+}
+.sidebar__background__image__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}

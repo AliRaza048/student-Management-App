@@ -87,4 +87,19 @@ h5 {
   border-radius: 10px !important;
 }
 
+.sidebar {
+  background-color: white;
+}
+.sidebar:hover {
+  overflow-y: scroll;
+}
+
+.sidebar__background__image__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
 /*# sourceMappingURL=App.css.map */
