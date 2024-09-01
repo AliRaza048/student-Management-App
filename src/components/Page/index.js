@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const PageWrapper = ({ children }) => {
+const Page= ({ children }) => {
   return (
     <React.Fragment>
       {<Header />}
@@ -12,4 +12,4 @@ const PageWrapper = ({ children }) => {
   );
 };
 
-export default PageWrapper;
+export default Page;

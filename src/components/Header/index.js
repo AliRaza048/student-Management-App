@@ -14,6 +14,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
+import Sidebar from "../Sidebar/index"
 const settings = [
   {
     id: 1,
@@ -140,6 +141,7 @@ const Header = () => {
   };
 
   return (
+    <React.Fragment>
     <nav className="bg-white p-6 flex items-center justify-between">
       <section className="flex items-center w-1/2 justify-between">
         <ul className="flex items-center gap-3">
@@ -260,6 +262,8 @@ const Header = () => {
         </Box>
       </section>
     </nav>
+    <Sidebar/>
+    </React.Fragment>
   );
 };
 
