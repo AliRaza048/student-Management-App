@@ -7,6 +7,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Button } from "@mui/material";
 const Sidebar = () => {
   const [dropDown, setDropDown] = useState(true);
 
@@ -43,7 +44,7 @@ const Sidebar = () => {
   };
 
   return (
-    <section className=" bg-white flex flex-col  gap-2 fixed p-6 w-66 h-screen sidebar">
+    <section className=" bg-white flex flex-col  gap-2 fixed p-6 w-62 h-screen sidebar">
       {sidebarItems.map((item) => (
         <aside className="flex p-5 gap-2 text-textColor font-semibold cursor-pointer items-center">
           {item.icon}
@@ -72,9 +73,10 @@ const Sidebar = () => {
       <figure class="sidebar__background__image">
         <section className="text-white font sidebar__background__image__text ">
           <h1 className="text-base font-semibold">Help Center</h1>
-          {/* <p className="text-justify 	">
+          <p className="text-center text-sm	flex  m-1	">
             Heaving Trouble in Learing? Please contact us for more question
-          </p> */}
+          </p>
+          <Button className="sidebar__button" >Go To Help Center</Button>
         </section>
       </figure>
     </section>

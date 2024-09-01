@@ -1,13 +1,50 @@
-.sidebar{
+.sidebar {
     background-color: white;
-    &:hover{
+    overflow-y: scroll;
+    &:hover {
         overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px white;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #c2c6e8;
+            border-radius: 10px;
+        }
+    }
+    &__button {
+        background-color: white !important;
+        color: black !important;
+        font-size: 11px !important;
+        width: 90% !important;
+        position: relative !important;
+        top: 2rem !important;
+        font-weight: 700 !important;
+        border-radius: 10px !important;
+    }
+    &__background__image__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
     }
 }
-.sidebar__background__image__text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+.sidebar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px white;
+    border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: white;
 }
