@@ -159,12 +159,34 @@ h5 {
   width: 32%;
   position: relative;
   top: 0.1rem;
-  border-color: #D7D7D9;
+  border-color: #d7d7d9;
 }
 .form__text {
   color: #9e9ea1;
   width: 32%;
   text-align: center;
+}
+.form__forgot {
+  color: rgb(84, 111, 255);
+}
+.form__input {
+  border: 1px solid #d7d7d9;
+}
+.form__input input {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 0.4rem;
+  color: rgb(178, 180, 196);
+}
+.form__authbutton {
+  background-color: #546FFF !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+  padding: 0px !important;
 }
 
 /*# sourceMappingURL=App.css.map */

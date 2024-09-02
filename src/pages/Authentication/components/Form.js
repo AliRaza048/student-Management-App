@@ -1,7 +1,14 @@
 import React from "react";
 import AppleIcon from "@mui/icons-material/Apple";
 import { Button } from "@mui/material";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import Checkbox from "@mui/material/Checkbox";
 
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const Form = () => {
   return (
     <React.Fragment>
@@ -32,7 +39,29 @@ const Form = () => {
             </h3>
             <hr className="form__border"></hr>
           </div>
-          <form></form>
+          <form>
+            <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-5">
+              <EmailOutlinedIcon sx={{ color: "rgb(194, 198, 232)" }} />
+              <input type="email" placeholder="Your Email" />
+            </div>
+            <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-3">
+              <LockOutlinedIcon sx={{ color: "rgb(194, 198, 232)" }} />
+              <input type="email" placeholder="Your Password" />
+            </div>
+            <div className="flex justify-between items-center mb-5">
+              <div className="flex text-nowrap gap-2 items-center" >
+                <Checkbox {...label} />
+                <h3 className="text-sm font-medium form__text">
+                  Remember me
+                </h3>
+              </div>
+              <h3 className="text-sm font-medium form__forgot">
+                 Forgot Password?
+                </h3>
+            </div>
+            <Button className=" flex justify-center w-full mb-6 form__authbutton" >Sign In</Button>
+            <p  className="w-full flex justify-center items-center mt-7">Don't have an account?<a className="form__forgot ml-1 cursor-pointer">Signup</a></p>
+          </form>
         </section>
       </main>
     </React.Fragment>
