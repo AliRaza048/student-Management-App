@@ -141,4 +141,30 @@ h5 {
   background: white;
 }
 
+.form {
+  width: 30%;
+}
+.form__authButton {
+  background-color: #f5f5f7 !important;
+  padding: 0.5rem !important;
+  width: 100%;
+  margin-top: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.3rem !important;
+  color: black !important;
+  font-weight: 700 !important;
+}
+.form__border {
+  width: 32%;
+  position: relative;
+  top: 0.1rem;
+  border-color: #D7D7D9;
+}
+.form__text {
+  color: #9e9ea1;
+  width: 32%;
+  text-align: center;
+}
+
 /*# sourceMappingURL=App.css.map */
