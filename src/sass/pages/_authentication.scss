@@ -1,5 +1,5 @@
 .form {
-    width: 30%;
+    width: 400px;
     &__authButton {
         background-color: #f5f5f7 !important;
         padding: 0.5rem !important;
@@ -9,7 +9,8 @@
         align-items: center !important;
         gap: 0.3rem !important;
         color: black !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
     }
     &__border {
         width: 32%;
@@ -23,6 +24,7 @@
         text-align: center;
     }
     &__forgot {
+        cursor: pointer;
         color: rgb(84, 111, 255);
     }
     &__input {
@@ -39,6 +41,7 @@
         background-color: #546FFF !important;
         color: white !important;
         font-weight: 700 !important;
+        border-radius: 10px !important;
     }
 }
 

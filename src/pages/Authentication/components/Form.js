@@ -11,16 +11,26 @@ import { useNavigate } from "react-router-dom";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-const Form = ({ title }) => {
+const Form = ({ title, userData, setUserData }) => {
   const navigate = useNavigate();
 
+  const handleChange = (event) => {
+    debugger
+    const { name, value } = event.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+  console.log(userData);
   return (
     <React.Fragment>
       <ul className="flex items-center gap-1 p-4 cursor-pointer">
         <img src={require("../../../assets/download.png")} className="w-10" />
         <h1 className="text-3xl font-semibold">DNX</h1>
       </ul>
-      <main className="flex justify-center items-center">
+      <main className="flex justify-center items-center p-4">
         <section className="bg-white p-4 rounded-md	form">
           <h2 className="text-center text-2xl font-semibold mb-1">
             {title == "SignIn" ? "Sign In" : "Sign Up"}
@@ -41,7 +51,7 @@ const Form = ({ title }) => {
           <div className="flex gap-2 items-center text-nowrap	mt-3 ">
             <hr className="form__border"></hr>
             <h3 className="text-center text-md font-semibold mb-1 form__text">
-              {title == "SignIn" ? "or Signin With" : "or SignUP With"}
+              {title == "SignIn" ? "or SignIn With" : "or SignUP With"}
             </h3>
             <hr className="form__border"></hr>
           </div>
@@ -51,18 +61,36 @@ const Form = ({ title }) => {
                 <AccountCircleOutlinedIcon
                   sx={{ color: "rgb(194, 198, 232)" }}
                 />
-                <input type="text" placeholder="Your Name" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={userData.name}
+                  onChange={(e) => handleChange(e)}
+                />
               </div>
             ) : (
               " "
             )}
             <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-5">
               <EmailOutlinedIcon sx={{ color: "rgb(194, 198, 232)" }} />
-              <input type="email" placeholder="Your Email" />
+              <input
+                type="email"
+                placeholder="Your Email"
+                name="email"
+                value={userData.email}
+                onChange={(e) => handleChange(e)}
+              />
             </div>
             <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-3">
               <LockOutlinedIcon sx={{ color: "rgb(194, 198, 232)" }} />
-              <input type="email" placeholder="Your Password" />
+              <input
+                type="password"
+                placeholder="Your Password"
+                name="password"
+                value={userData.password}
+                onChange={(e) => handleChange(e)}
+              />
             </div>
             <div className="flex justify-between items-center mb-5">
               <div className="flex text-nowrap gap-2 items-center">

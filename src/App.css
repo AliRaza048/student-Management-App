@@ -142,7 +142,7 @@ h5 {
 }
 
 .form {
-  width: 30%;
+  width: 400px;
 }
 .form__authButton {
   background-color: #f5f5f7 !important;
@@ -153,7 +153,8 @@ h5 {
   align-items: center !important;
   gap: 0.3rem !important;
   color: black !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
 }
 .form__border {
   width: 32%;
@@ -167,6 +168,7 @@ h5 {
   text-align: center;
 }
 .form__forgot {
+  cursor: pointer;
   color: rgb(84, 111, 255);
 }
 .form__input {
@@ -183,6 +185,7 @@ h5 {
   background-color: #546FFF !important;
   color: white !important;
   font-weight: 700 !important;
+  border-radius: 10px !important;
 }
 
 .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
