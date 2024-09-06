@@ -8,22 +8,36 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import { useNavigate } from "react-router-dom";
-
+import Authentication from "../../../apis/Authentication";
+import { useMutation } from "@tanstack/react-query";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Form = ({ title, userData, setUserData }) => {
   const navigate = useNavigate();
-
+  const { signUPUser } = Authentication();
+  const mutation = useMutation({
+    mutationFn:signUPUser
+  });
   const handleChange = (event) => {
-    debugger
     const { name, value } = event.target;
     setUserData({
       ...userData,
       [name]: value,
     });
   };
+  const handleSubmit = (e) => {
+    debugger
+    e.preventDefault();
+    mutation.mutate(userData, {
+      onSuccess: (data) => {
+        console.log("Post create successfully:", data);
+      },
+      onError: (error) => {
+        console.log("Error creating post:", error);
+      },
+    });
+  };
 
-  console.log(userData);
   return (
     <React.Fragment>
       <ul className="flex items-center gap-1 p-4 cursor-pointer">
@@ -55,7 +69,7 @@ const Form = ({ title, userData, setUserData }) => {
             </h3>
             <hr className="form__border"></hr>
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             {title == "SignIn" ? (
               <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-5">
                 <AccountCircleOutlinedIcon
@@ -101,7 +115,10 @@ const Form = ({ title, userData, setUserData }) => {
                 Forgot Password?
               </h3>
             </div>
-            <Button className=" flex justify-center w-full mb-6 form__authbutton">
+            <Button
+              type="submit"
+              className=" flex justify-center w-full mb-6 form__authbutton"
+            >
               {title == "SignIn" ? "Sign In" : "Sign Up"}
             </Button>
             <p className="w-full flex justify-center items-center mt-7">
