@@ -3,9 +3,9 @@ import Form from "../components/Form";
 
 const SignIn = () => {
   const [userData, setUserData] = useState({
-    name: "",
+    username: "",
     email: "",
-    Password: null,
+    password: "",
   });
 
   return (

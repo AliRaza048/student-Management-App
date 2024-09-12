@@ -4,14 +4,14 @@ export default function Authentication() {
 
   async function signUPUser(user) {
     debugger
-    const response = await fetch(`${SERVER_API}/user/signup`, {
+    const response = await fetch(`${SERVER_API}/user`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(user),
     });
-    if (!response.Ok) {
+    if (!response.ok) {
       throw new Error("Failed to create the post");
     }
     return response.json();

@@ -24,6 +24,7 @@ const Form = ({ title, userData, setUserData }) => {
       ...userData,
       [name]: value,
     });
+    console.log(userData)
   };
   const handleSubmit = (e) => {
     debugger
@@ -77,14 +78,14 @@ const Form = ({ title, userData, setUserData }) => {
                 />
                 <input
                   type="text"
-                  name="name"
+                  name="username"
                   placeholder="Your Name"
-                  value={userData.name}
+                  value={userData.username}
                   onChange={(e) => handleChange(e)}
                 />
               </div>
             ) : (
-              " "
+              null
             )}
             <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-5">
               <EmailOutlinedIcon sx={{ color: "rgb(194, 198, 232)" }} />
@@ -100,8 +101,8 @@ const Form = ({ title, userData, setUserData }) => {
               <LockOutlinedIcon sx={{ color: "rgb(194, 198, 232)" }} />
               <input
                 type="password"
-                placeholder="Your Password"
                 name="password"
+                placeholder="Your Password"
                 value={userData.password}
                 onChange={(e) => handleChange(e)}
               />

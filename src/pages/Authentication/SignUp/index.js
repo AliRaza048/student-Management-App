@@ -4,7 +4,7 @@ import Form from "../components/Form";
 const SignUp = () => {
   const [userData, setUserData] = useState({
     email: "",
-    Password: null,
+    password: "",
   });
   return (
     <React.Fragment>
