@@ -1,6 +1,6 @@
 import { SERVER_API } from "../helpers/variable";
 
-export default function Authentication() {
+export default function Auth() {
 
   async function signUPUser(user) {
     debugger

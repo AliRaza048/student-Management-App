@@ -8,26 +8,27 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import { useNavigate } from "react-router-dom";
-import Authentication from "../../../apis/Authentication";
+import Authentication from "../../../apis/auth";
 import { useMutation } from "@tanstack/react-query";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Form = ({ title, userData, setUserData }) => {
   const navigate = useNavigate();
   const { signUPUser } = Authentication();
+
   const mutation = useMutation({
-    mutationFn:signUPUser
+    mutationFn: signUPUser,
   });
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData({
       ...userData,
       [name]: value,
     });
-    console.log(userData)
   };
-  const handleSubmit = (e) => {
-    debugger
+
+  const handleSignUpUser = (e) => {
     e.preventDefault();
     mutation.mutate(userData, {
       onSuccess: (data) => {
@@ -37,6 +38,12 @@ const Form = ({ title, userData, setUserData }) => {
         console.log("Error creating post:", error);
       },
     });
+    setUserData("");
+  };
+
+  const handleloginUser = (e) => {
+    e.preventDefault();
+    console.log(e);
   };
 
   return (
@@ -48,7 +55,7 @@ const Form = ({ title, userData, setUserData }) => {
       <main className="flex justify-center items-center p-4">
         <section className="bg-white p-4 rounded-md	form">
           <h2 className="text-center text-2xl font-semibold mb-1">
-            {title == "SignIn" ? "Sign In" : "Sign Up"}
+            {title == "SignIn" ? "Sign Up" : "Sign In"}
           </h2>
           <p className="text-center">Welecome back! Lets continue with,</p>
           <div className="flex gap-4">
@@ -66,11 +73,13 @@ const Form = ({ title, userData, setUserData }) => {
           <div className="flex gap-2 items-center text-nowrap	mt-3 ">
             <hr className="form__border"></hr>
             <h3 className="text-center text-md font-semibold mb-1 form__text">
-              {title == "SignIn" ? "or SignIn With" : "or SignUP With"}
+              {title == "SignIn" ? "or SignUp With" : "or Signin With"}
             </h3>
             <hr className="form__border"></hr>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={title == "SignIn" ? handleSignUpUser : handleloginUser}
+          >
             {title == "SignIn" ? (
               <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-5">
                 <AccountCircleOutlinedIcon
@@ -84,9 +93,7 @@ const Form = ({ title, userData, setUserData }) => {
                   onChange={(e) => handleChange(e)}
                 />
               </div>
-            ) : (
-              null
-            )}
+            ) : null}
             <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-5">
               <EmailOutlinedIcon sx={{ color: "rgb(194, 198, 232)" }} />
               <input
@@ -120,7 +127,7 @@ const Form = ({ title, userData, setUserData }) => {
               type="submit"
               className=" flex justify-center w-full mb-6 form__authbutton"
             >
-              {title == "SignIn" ? "Sign In" : "Sign Up"}
+              {title == "SignIn" ? "Sign Up" : "Sign In"}
             </Button>
             <p className="w-full flex justify-center items-center mt-7">
               Don't have an account?
@@ -132,7 +139,7 @@ const Form = ({ title, userData, setUserData }) => {
                     : () => navigate("/signin")
                 }
               >
-                {title == "SignIn" ? "Sign up" : "Sign in"}
+                {title == "SignIn" ? "Sign In" : "Sign Up"}
               </a>
             </p>
           </form>
