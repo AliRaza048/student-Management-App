@@ -14,10 +14,14 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Form = ({ title, userData, setUserData }) => {
   const navigate = useNavigate();
-  const { signUPUser } = Authentication();
+  const { signUPUser,signInUser } = Authentication();
 
   const mutation = useMutation({
     mutationFn: signUPUser,
+  });
+
+  const signInMutation = useMutation({
+    mutationFn: signInUser,
   });
 
   const handleChange = (event) => {
@@ -43,7 +47,15 @@ const Form = ({ title, userData, setUserData }) => {
 
   const handleloginUser = (e) => {
     e.preventDefault();
-    console.log(e);
+    signInMutation.mutate(userData, {
+      onSuccess: (data) => {
+        console.log("Post create successfully:", data);
+      },
+      onError: (error) => {
+        console.log("Error creating post:", error);
+      },
+    });
+    setUserData("");
   };
 
   return (
