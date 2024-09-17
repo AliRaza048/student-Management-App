@@ -30,6 +30,7 @@ const Form = ({ title, userData, setUserData }) => {
       ...userData,
       [name]: value,
     });
+    console.log(userData)
   };
 
   const handleSignUpUser = (e) => {

@@ -2,7 +2,6 @@ import { SERVER_API } from "../helpers/variable";
 
 export default function Auth() {
   async function signUPUser(user) {
-    debugger
     const response = await fetch(`${SERVER_API}/user`, {
       method: "POST",
       headers: {
@@ -17,8 +16,7 @@ export default function Auth() {
   }
 
   async function signInUser(user) {
-    debugger
-    const response = await fetch(`${SERVER_API}/login`, {
+    const response = await fetch(`${SERVER_API}/user/login`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
