@@ -1,9 +1,7 @@
-import React from "react";
-import Header from "../components/Header";
 import Page from "../components/Page";
 import SignIn from "../pages/Authentication/SignIn";
 import SignUp from "../pages/Authentication/SignUp";
-
+import Overview from "../pages/StudentPortal/Overview";
 export const routes = [
   {
     name: "dashboard",
@@ -21,6 +19,12 @@ export const routes = [
     name: "signup",
     path: "/signup",
     component: SignUp,
+    isPrivate: true,
+  },
+  {
+    name: "overview",
+    path: "/overview",
+    component: Overview,
     isPrivate: true,
   },
 ];
