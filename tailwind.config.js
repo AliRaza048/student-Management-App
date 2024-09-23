@@ -13,7 +13,12 @@ module.exports = {
     fontFamily: {
       sidebarfontFamily: "Plus Jakarta Sans , sans-serif",
     },
-    extend: {},
+
+    extend: {
+      margin: {
+        left: "258px",
+      },
+    },
   },
   plugins: [],
 };

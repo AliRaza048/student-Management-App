@@ -16,9 +16,9 @@ const Sidebar = () => {
   const sidebarItems = [
     {
       id: 1,
-      name: "OverView",
+      name: "Overview",
       icon: <GridViewIcon />,
-      path: "/overview",
+      path: "/",
     },
     {
       id: 2,
@@ -73,8 +73,8 @@ const Sidebar = () => {
 
       {dropDown != true ? (
         <div className="flex relative bottom-4 right-8 flex-col items-center gap-4 text-black font-semibold text-sm ease-in cursor-pointer">
-          <h6>Sign In</h6>
-          <h6>Sign Up</h6>
+          <h6 onClick={() => navigate("/signup")}>Sign In</h6>
+          <h6 onClick={() => navigate("/signin")}>Sign Up</h6>
         </div>
       ) : (
         ""

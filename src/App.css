@@ -18,6 +18,11 @@ html {
 body {
   box-sizing: border-box;
   background-color: #F5F5F7;
+  color: rgb(20, 21, 34);
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  line-height: 1.5;
 }
 
 h1,
@@ -190,6 +195,10 @@ h5 {
 
 .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
   padding: 0px !important;
+}
+
+.overview {
+  background-color: #FCFCFC;
 }
 
 /*# sourceMappingURL=App.css.map */

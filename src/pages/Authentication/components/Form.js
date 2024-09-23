@@ -14,7 +14,7 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Form = ({ title, userData, setUserData }) => {
   const navigate = useNavigate();
-  const { signUPUser,signInUser } = Authentication();
+  const { signUPUser, signInUser } = Authentication();
 
   const mutation = useMutation({
     mutationFn: signUPUser,
@@ -30,7 +30,7 @@ const Form = ({ title, userData, setUserData }) => {
       ...userData,
       [name]: value,
     });
-    console.log(userData)
+    console.log(userData);
   };
 
   const handleSignUpUser = (e) => {
@@ -61,8 +61,15 @@ const Form = ({ title, userData, setUserData }) => {
 
   return (
     <React.Fragment>
-      <ul className="flex items-center gap-1 p-4 cursor-pointer">
-        <img src={require("../../../assets/download.png")} className="w-10" />
+      <ul
+        className="flex items-center gap-1 p-4 cursor-pointer"
+        onClick={() => navigate("/")}
+      >
+        <img
+          src={require("../../../assets/download.png")}
+          className="w-10"
+          onClick={() => navigate("/")}
+        />
         <h1 className="text-3xl font-semibold">DNX</h1>
       </ul>
       <main className="flex justify-center items-center p-4">

@@ -4,12 +4,6 @@ import SignUp from "../pages/Authentication/SignUp";
 import Overview from "../pages/StudentPortal/Overview";
 export const routes = [
   {
-    name: "dashboard",
-    path: "/",
-    component: Page,
-    isPrivate: false,
-  },
-  {
     name: "signin",
     path: "/signin",
     component: SignIn,
@@ -23,7 +17,7 @@ export const routes = [
   },
   {
     name: "overview",
-    path: "/overview",
+    path: "/",
     component: Overview,
     isPrivate: true,
   },
