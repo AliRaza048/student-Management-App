@@ -1,6 +1,9 @@
 import { SERVER_API } from "../helpers/variable";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 export default function Auth() {
+  const naviagte = useNavigate();
+
   async function signUPUser(user) {
     const response = await fetch(`${SERVER_API}/user`, {
       method: "POST",
@@ -31,6 +34,7 @@ export default function Auth() {
       const data = await response.json();
       Cookies.set("token", data.token, { expires: 1 });
       console.log(data.token);
+      naviagte('/');
       return data;
     } catch (error) {
       console.error("Login Error", error);

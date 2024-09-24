@@ -1,3 +1,30 @@
-.overview{
-    background-color: #FCFCFC;
+.overview {
+    &__containerOne {
+        background-color: #fcfcfc;
+        &__runningTask {
+            background-color: #141522;
+            color: white;
+        }
+        &__borderCircle {
+            width: 100%;
+            &__container {
+                border-top: 3px solid #1D1F28;
+                border-left: 3px solid #1D1F2C;
+                margin-top: 1rem;
+                border-right: 3px solid #5C7BD9;
+                border-bottom: 3px solid #5C7BD9;
+                border-radius: 75%;
+                height: 80px !important;
+                width: 80px !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: rotate(320deg);
+                &__title {
+                    transform: rotate(39deg);
+                    font-size: 18px;
+                }
+            }
+        }
+    }
 }

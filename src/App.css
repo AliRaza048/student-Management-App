@@ -197,8 +197,33 @@ h5 {
   padding: 0px !important;
 }
 
-.overview {
-  background-color: #FCFCFC;
+.overview__containerOne {
+  background-color: #fcfcfc;
+}
+.overview__containerOne__runningTask {
+  background-color: #141522;
+  color: white;
+}
+.overview__containerOne__borderCircle {
+  width: 100%;
+}
+.overview__containerOne__borderCircle__container {
+  border-top: 3px solid #1D1F28;
+  border-left: 3px solid #1D1F2C;
+  margin-top: 1rem;
+  border-right: 3px solid #5C7BD9;
+  border-bottom: 3px solid #5C7BD9;
+  border-radius: 75%;
+  height: 80px !important;
+  width: 80px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(320deg);
+}
+.overview__containerOne__borderCircle__container__title {
+  transform: rotate(39deg);
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=App.css.map */
