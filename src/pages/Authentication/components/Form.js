@@ -19,10 +19,10 @@ const Form = ({ title, userData, setUserData }) => {
   const mutation = useMutation({
     mutationFn: signUPUser,
   });
-
   const signInMutation = useMutation({
     mutationFn: signInUser,
   });
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,7 +33,10 @@ const Form = ({ title, userData, setUserData }) => {
     console.log(userData);
   };
 
+
+
   const handleSignUpUser = (e) => {
+    debugger
     e.preventDefault();
     mutation.mutate(userData, {
       onSuccess: (data) => {

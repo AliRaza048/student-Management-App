@@ -1,6 +1,6 @@
 import React from "react";
 import Page from "../../../components/Page";
-import { Typography } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import AddIcon from "@mui/icons-material/Add";
@@ -10,7 +10,13 @@ const Overview = () => {
   const teachersData = [
     {
       id: 1,
-      img: <img src={require("../../../assets/avatar1-BitUNrbl.png")} />,
+      img: (
+        <Avatar
+          src={require("../../../assets/avatar1-BitUNrbl.png")}
+          sx={{ width: "55px", height: "55px" }}
+          className="cursor-pointer"
+        />
+      ),
       teacherName: "Curious George",
       lectureNAME: "UI UX Design",
       lecture: 60,
@@ -20,30 +26,42 @@ const Overview = () => {
       task: "60 Task",
       reviews: "4.9(470 Reviews)",
     },
-    {
-      id: 2,
-      img: <img src={require("../../../assets/avatar2-4Zw0wyKV.png")} />,
-      teacherName: "Abraham Lincoln",
-      lectureNAME: "3D Design",
-      lecture: 60,
-      follow: "Followed",
-      addIcon: <AddIcon />,
-      taskIcon: <ContentCopyIcon />,
-      task: "32 Task",
-      reviews: "4.9(510 Reviews)",
-    },
-    {
-      id: 3,
-      img: <img src={require("../../../assets/avatar3-CQVfZJmL.png")} />,
-      teacherName: "Alex Stanton",
-      lectureNAME: "UI UX Designer",
-      lecture: 60,
-      follow: "Followed",
-      addIcon: <AddIcon />,
-      taskIcon: <ContentCopyIcon />,
-      task: "32 Task",
-      reviews: "4.9(510 Reviews)",
-    },
+    // {
+    //   id: 2,
+    //   img: <img src={require("../../../assets/avatar2-4Zw0wyKV.png")} />,
+    //   teacherName: "Abraham Lincoln",
+    //   lectureNAME: "3D Design",
+    //   lecture: 60,
+    //   follow: "Followed",
+    //   addIcon: <AddIcon />,
+    //   taskIcon: <ContentCopyIcon />,
+    //   task: "32 Task",
+    //   reviews: "4.9(510 Reviews)",
+    // },
+    // {
+    //   id: 3,
+    //   img: <img src={require("../../../assets/avatar3-CQVfZJmL.png")} />,
+    //   teacherName: "Alex Stanton",
+    //   lectureNAME: "UI UX Designer",
+    //   lecture: 60,
+    //   follow: "Followed",
+    //   addIcon: <AddIcon />,
+    //   taskIcon: <ContentCopyIcon />,
+    //   task: "32 Task",
+    //   reviews: "4.9(510 Reviews)",
+    // },
+    // {
+    //   id: 4,
+    //   img: <img src={require("../../../assets/avatar4-UQqyHlpd.png")} />,
+    //   teacherName: "Richard Kyle",
+    //   lectureNAME: "2D Design",
+    //   lecture: 60,
+    //   follow: "Followed",
+    //   addIcon: <AddIcon />,
+    //   taskIcon: <ContentCopyIcon />,
+    //   task: "32 Task",
+    //   reviews: "4.9(510 Reviews)",
+    // },
   ];
 
   return (
@@ -85,7 +103,23 @@ const Overview = () => {
                 />
               </div>
             </div>
-
+            {teachersData.map((item) => (
+              <aside className="p-4 overview__activity__mentors rounded-md	mb-6 ">
+                <div className="flex justify-between">
+                  <div className="flex gap-2 items-center">
+                    {item.img}
+                    <h1 className="font-semibold">{item.teacherName}</h1>
+                  </div>
+                  <div
+                    className="flex items-center cursor-pointer"
+                    style={{ color: "#546FFF" }}
+                  >
+                    {item.addIcon}
+                    <h6>{item.follow}</h6>
+                  </div>
+                </div>
+              </aside>
+            ))}
           </section>
         </aside>
       </main>
