@@ -1,8 +1,8 @@
 import React from "react";
 const Teachers = (item) => {
   return (
-    <section className="flex w-full">
-      <aside className="p-4 w-full overview__activity__mentors rounded-md	mb-6 ">
+    <section className=" mb-6 rounded-lg  flex w-full">
+      <aside className="p-4 w-full overview__activity__mentors rounded-md	 ">
         <div className="flex justify-between">
           <div className="flex gap-2 items-center">
             {item.item.img}
@@ -19,7 +19,7 @@ const Teachers = (item) => {
               style={{ color: "#546FFF" }}
             >
               {item.item.addIcon}
-              <h6 >{item.item.follow}</h6>
+              <h6>{item.item.follow}</h6>
             </div>
           ) : (
             <h1

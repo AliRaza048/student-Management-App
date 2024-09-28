@@ -1,16 +1,16 @@
 import React from "react";
 import Page from "../../../components/Page";
-import { IconButton, Typography } from "@mui/material";
+import { Avatar,IconButton, Typography } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import Teachers from "./components/Teachers";
-import { Avatar } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import StarIcon from "@mui/icons-material/Star";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import UpComingTask from "./components/UpComingTask";
 const Overview = () => {
   const teachersData = [
     {
@@ -97,7 +97,7 @@ const Overview = () => {
     <Page>
       <main className="ml-left overview">
         <aside className=" p-6 w-7/12	 overview__containerOne">
-          <section className="flex gap-8 rounded-lg mb-10	overview__containerOne__runningTask">
+          <section className="flex gap-8 rounded-lg mb-6	overview__containerOne__runningTask">
             <div className=" p-4 font-medium">
               <h1 className="text-lg	">Running Task</h1>
               <h1 className="text-3xl	mt-4">65</h1>
@@ -114,7 +114,7 @@ const Overview = () => {
               </div>
             </div>
           </section>
-          <section className="p-2rounded-lg mb-6 overview__activity">
+          <section className="overview__activity">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-2xl font-semibold" color="rgb(20, 21, 34)">
                 Weekly Mentors
@@ -124,15 +124,15 @@ const Overview = () => {
                   <ArrowBackIosIcon
                     className="cursor-pointer"
                     color="#272834"
-                    fontSize="small"
-                  />
+                    fontSize="medium"
+                    />
                 </IconButton>
                 <IconButton className="forward__icon">
                   <ArrowForwardIosIcon
                     className="cursor-pointer"
                     color="#272834"
-                    fontSize="small"
-                  />
+                    fontSize="medium"
+                    />
                 </IconButton>
               </div>
             </div>
@@ -159,6 +159,7 @@ const Overview = () => {
               ))}
             </Swiper>
           </section>
+          <UpComingTask/>
         </aside>
       </main>
     </Page>
