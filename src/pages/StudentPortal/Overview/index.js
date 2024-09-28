@@ -1,10 +1,15 @@
 import React from "react";
 import Page from "../../../components/Page";
-import { Avatar, Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import Teachers from "./components/Teachers";
+import { Avatar } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 const Overview = () => {
   const teachersData = [
@@ -22,48 +27,72 @@ const Overview = () => {
       lecture: 60,
       follow: "Follow",
       addIcon: <AddIcon />,
-      taskIcon: <ContentCopyIcon />,
+      taskIcon: <ContentCopyIcon sx={{ color: "rgb(84, 87, 122)" }} />,
       task: "60 Task",
       reviews: "4.9(470 Reviews)",
+      starIcon: <StarIcon sx={{ color: "rgb(255, 176, 84)" }} />,
+      type:"follow"
     },
-    // {
-    //   id: 2,
-    //   img: <img src={require("../../../assets/avatar2-4Zw0wyKV.png")} />,
-    //   teacherName: "Abraham Lincoln",
-    //   lectureNAME: "3D Design",
-    //   lecture: 60,
-    //   follow: "Followed",
-    //   addIcon: <AddIcon />,
-    //   taskIcon: <ContentCopyIcon />,
-    //   task: "32 Task",
-    //   reviews: "4.9(510 Reviews)",
-    // },
-    // {
-    //   id: 3,
-    //   img: <img src={require("../../../assets/avatar3-CQVfZJmL.png")} />,
-    //   teacherName: "Alex Stanton",
-    //   lectureNAME: "UI UX Designer",
-    //   lecture: 60,
-    //   follow: "Followed",
-    //   addIcon: <AddIcon />,
-    //   taskIcon: <ContentCopyIcon />,
-    //   task: "32 Task",
-    //   reviews: "4.9(510 Reviews)",
-    // },
-    // {
-    //   id: 4,
-    //   img: <img src={require("../../../assets/avatar4-UQqyHlpd.png")} />,
-    //   teacherName: "Richard Kyle",
-    //   lectureNAME: "2D Design",
-    //   lecture: 60,
-    //   follow: "Followed",
-    //   addIcon: <AddIcon />,
-    //   taskIcon: <ContentCopyIcon />,
-    //   task: "32 Task",
-    //   reviews: "4.9(510 Reviews)",
-    // },
+    {
+      id: 2,
+      img: (
+        <Avatar
+          src={require("../../../assets/avatar2-4Zw0wyKV.png")}
+          sx={{ width: "55px", height: "55px" }}
+          className="cursor-pointer"
+        />
+      ),
+      teacherName: "Abraham Lincoln",
+      lectureNAME: "3D Design",
+      lecture: 60,
+      follow: "Follow",
+      addIcon: <AddIcon />,
+      taskIcon: <ContentCopyIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+      task: "32 Task",
+      reviews: "4.9(510 Reviews)",
+      starIcon: <StarIcon sx={{ color: "rgb(255, 176, 84)" }} />,
+      type:"follow"
+    },
+    {
+      id: 3,
+      img: (
+        <Avatar
+          src={require("../../../assets/avatar3-CQVfZJmL.png")}
+          sx={{ width: "55px", height: "55px" }}
+          className="cursor-pointer"
+        />
+      ),
+      teacherName: "Alex Stanton",
+      lectureNAME: "UI UX Designer",
+      lecture: 60,
+      follow: "Follow",
+      addIcon: <AddIcon />,
+      taskIcon: <ContentCopyIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+      task: "32 Task",
+      reviews: "4.9(510 Reviews)",
+      starIcon: <StarIcon sx={{ color: "rgb(255, 176, 84)" }} />,
+      type:"follow"
+    },
+    {
+      id: 4,
+      img: (
+        <Avatar
+          src={require("../../../assets/avatar4-UQqyHlpd.png")}
+          sx={{ width: "55px", height: "55px" }}
+          className="cursor-pointer"
+        />
+      ),
+      teacherName: "Richard Kyle",
+      lectureNAME: "2D Design",
+      lecture: 60,
+      addIcon: <AddIcon />,
+      taskIcon: <ContentCopyIcon sx={{ color: "rgb(84, 87, 122)" }} />,
+      task: "32 Task",
+      reviews: "4.9(510 Reviews)",
+      starIcon: <StarIcon sx={{ color: "rgb(255, 176, 84)" }} />,
+      type:"followed"
+    },
   ];
-
   return (
     <Page>
       <main className="ml-left overview">
@@ -91,35 +120,44 @@ const Overview = () => {
                 Weekly Mentors
               </h3>
               <div className="flex cursor-pointer">
-                <ArrowBackIosIcon
-                  className="cursor-pointer"
-                  color="#272834"
-                  fontSize="small"
-                />
-                <ArrowForwardIosIcon
-                  className="cursor-pointer"
-                  color="#272834"
-                  fontSize="small"
-                />
+                <IconButton className="backward__icon">
+                  <ArrowBackIosIcon
+                    className="cursor-pointer"
+                    color="#272834"
+                    fontSize="small"
+                  />
+                </IconButton>
+                <IconButton className="forward__icon">
+                  <ArrowForwardIosIcon
+                    className="cursor-pointer"
+                    color="#272834"
+                    fontSize="small"
+                  />
+                </IconButton>
               </div>
             </div>
-            {teachersData.map((item) => (
-              <aside className="p-4 overview__activity__mentors rounded-md	mb-6 ">
-                <div className="flex justify-between">
-                  <div className="flex gap-2 items-center">
-                    {item.img}
-                    <h1 className="font-semibold">{item.teacherName}</h1>
-                  </div>
-                  <div
-                    className="flex items-center cursor-pointer"
-                    style={{ color: "#546FFF" }}
-                  >
-                    {item.addIcon}
-                    <h6>{item.follow}</h6>
-                  </div>
-                </div>
-              </aside>
-            ))}
+            <Swiper
+              modules={[Navigation, Pagination, A11y, Autoplay]}
+              spaceBetween={10}
+              slidesPerView={1}
+              className="landingPage__container__cardsContainer1__cards"
+              navigation={{
+                prevEl: ".backward__icon",
+                nextEl: ".forward__icon",
+              }}
+              autoplay={{
+                delay: 2000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+            >
+              {teachersData.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <Teachers item={item} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </section>
         </aside>
       </main>

@@ -1,6 +1,7 @@
 .sidebar {
     background-color: white;
     overflow-y: scroll;
+    margin-top: 5rem;
     &:hover {
         overflow-y: scroll;
         &::-webkit-scrollbar {

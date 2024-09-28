@@ -95,6 +95,7 @@ h5 {
 .sidebar {
   background-color: white;
   overflow-y: scroll;
+  margin-top: 5rem;
 }
 .sidebar:hover {
   overflow-y: scroll;
@@ -203,6 +204,7 @@ h5 {
 .overview__containerOne__runningTask {
   background-color: #141522;
   color: white;
+  margin-top: 5rem;
 }
 .overview__containerOne__borderCircle {
   width: 100%;

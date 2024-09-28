@@ -142,7 +142,7 @@ const Header = () => {
 
   return (
     <React.Fragment>
-    <nav className="bg-white p-6 flex items-center justify-between">
+    <nav className="fixed z-10 w-full bg-white p-6 flex items-center justify-between">
       <section className="flex items-center w-1/2 justify-between">
         <ul className="flex items-center gap-3">
           <img
