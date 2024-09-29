@@ -272,8 +272,8 @@ const UpComingTask = () => {
   ];
 
   return (
-    <React.Fragment>
-      <section className=" mb-4 flex justify-between items-center ">
+    <main className="mb-4">
+      <section className="mb-4 flex justify-between items-center ">
         <h3 className="text-2xl font-semibold" color="rgb(20, 21, 34)">
           Monthly Mentors
         </h3>
@@ -362,7 +362,7 @@ const UpComingTask = () => {
           </aside>
         </section>
       ))} */}
-    </React.Fragment>
+    </main>
   );
 };
 

@@ -11,6 +11,7 @@ import AddIcon from "@mui/icons-material/Add";
 import StarIcon from "@mui/icons-material/Star";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import UpComingTask from "./components/UpComingTask";
+import TaskTable from "./components/TaskTable";
 const Overview = () => {
   const teachersData = [
     {
@@ -160,6 +161,7 @@ const Overview = () => {
             </Swiper>
           </section>
           <UpComingTask/>
+          <TaskTable/>
         </aside>
       </main>
     </Page>
