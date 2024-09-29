@@ -245,4 +245,9 @@ h5 {
   background-color: #FFFFFF;
 }
 
+.css-eglki6-MuiLinearProgress-root {
+  height: 10px !important;
+  border-radius: 10px !important;
+}
+
 /*# sourceMappingURL=App.css.map */
