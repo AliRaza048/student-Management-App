@@ -21,6 +21,7 @@ import Switch from "@mui/material/Switch";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
+import { Avatar } from "@mui/material";
 
 function createData(id, name, calories, fat, carbs, protein) {
   return {
@@ -33,20 +34,58 @@ function createData(id, name, calories, fat, carbs, protein) {
   };
 }
 
+const Avataricon = [
+  <Avatar
+    src={require("../../../assets/avatar1-BitUNrbl.png")}
+    sx={{
+      width: "20px",
+      height: "20px",
+      position: "relative",
+      left: "5px",
+    }}
+  />,
+  <Avatar
+    src={require("../../../assets/avatar2-4Zw0wyKV.png")}
+    sx={{
+      width: "20px",
+      height: "20px",
+    }}
+  />,
+  <Avatar
+    src={require("../../../assets/avatar3-CQVfZJmL.png")}
+    sx={{
+      width: "20px",
+      height: "20px",
+      position: "relative",
+      right: "5px",
+    }}
+  />,
+  <Avatar
+    src={require("../../../assets/avatar4-UQqyHlpd.png")}
+    sx={{
+      width: "20px",
+      height: "20px",
+      position: "relative",
+      right: "10px",
+    }}
+  />,
+  <Avatar
+    src={require("../../../assets/avatar5-Dut-0EdJ.png")}
+    sx={{
+      width: "20px",
+      height: "20px",
+      position: "relative",
+      right: "15px",
+    }}
+  />,
+];
+
 const rows = [
-  createData(1, "Creating Wireframes", 305, 3.7, 67, 4.3),
-  createData(2, "Donut", 452, 25.0, 51, 4.9),
-  createData(3, "Fixing Critical Bugs", 262, 16.0, 24, 6.0),
-  createData(4, "Designing Landing Page", 159, 6.0, 24, 4.0),
-  createData(5, "Setting Up Analytics", 356, 16.0, 49, 3.9),
-  createData(6, "Honeycomb", 408, 3.2, 87, 6.5),
-  createData(7, "Setting Up Analytics", 237, 9.0, 37, 4.3),
-  createData(8, "Jelly Bean", 375, 0.0, 94, 0.0),
-  createData(9, "KitKat", 518, 26.0, 65, 7.0),
-  createData(10, "Lollipop", 392, 0.2, 98, 0.0),
-  createData(11, "Fixing UI/UX Issues", 318, 0, 81, 2.0),
-  createData(12, "Nougat", 360, 19.0, 9, 37.0),
-  createData(13, "Oreo", 437, 18.0, 63, 4.0),
+  createData(1, "Fixing Critical Bugs", Avataricon, 16.0, 24, 6.0),
+  createData(2, "Designing Landing Page", Avataricon, 6.0, 24, 4.0),
+  createData(3, "Setting Up Analytics", Avataricon, 16.0, 49, 3.9),
+  createData(4, "Setting Up Analytics", Avataricon, 9.0, 37, 4.3),
+  createData(5, "Fixing UI/UX Issues", Avataricon, 0, 81, 2.0),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -114,8 +153,9 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
+        {/* <TableCell padding="checkbox">
+          <input
+            type="checkbox"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -123,14 +163,14 @@ function EnhancedTableHead(props) {
               "aria-label": "select all desserts",
             }}
           />
-        </TableCell>
+        </TableCell> */}
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
+            align={headCell.numeric ? "center" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
-            sx={{fontWeight:"600", fontSize:"15px"}}
+            sx={{ fontWeight: "600", fontSize: "15px" }}
           >
             {headCell.label}
           </TableCell>
@@ -277,7 +317,22 @@ export default function OverViewTable() {
   return (
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb: 2, padding: ".5rem" }}>
-        <TableContainer>
+        <TableContainer
+          sx={{
+            "&::-webkit-scrollbar": {
+              width: "5px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#c2c6e8 ",
+              borderRadius: "10px !important",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              backgroundColor: "white",
+            },
+            scrollbarWidth: "thin",
+            scrollbarColor: "#c2c6e8 white",
+          }}
+        >
           <Table
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
@@ -307,15 +362,17 @@ export default function OverViewTable() {
                     selected={isItemSelected}
                     sx={{ cursor: "pointer" }}
                   >
-                    <TableCell padding="checkbox">
-                      <Checkbox
+                    {/* <TableCell padding="checkbox">
+                      <input
+                        type="checkbox"
                         color="primary"
                         checked={isItemSelected}
                         inputProps={{
                           "aria-labelledby": labelId,
                         }}
+                        className="bg-black-500"
                       />
-                    </TableCell>
+                    </TableCell> */}
                     <TableCell
                       component="th"
                       id={labelId}
@@ -324,10 +381,21 @@ export default function OverViewTable() {
                     >
                       {row.name}
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "relative",
+                        left: ".5rem",
+                      }}
+                    >
+                      {row.calories}
+                    </TableCell>
+                    <TableCell align="center">{row.fat}</TableCell>
+                    <TableCell align="center">{row.carbs}</TableCell>
+                    <TableCell align="center">{row.protein}</TableCell>
                   </TableRow>
                 );
               })}
