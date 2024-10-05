@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import Router from './routing/Router'
+import Router from "./routing/Router";
 function App() {
   return (
     <React.Fragment>
-    <Router/>
+      <Router />
     </React.Fragment>
   );
 }

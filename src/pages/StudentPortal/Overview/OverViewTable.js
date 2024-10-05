@@ -22,8 +22,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import { Avatar } from "@mui/material";
+import ProgressBar from "./components/ProgressBar";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
-function createData(id, name, calories, fat, carbs, protein) {
+function createData(id, name, calories, fat, carbs, protein, icon) {
   return {
     id,
     name,
@@ -31,6 +33,7 @@ function createData(id, name, calories, fat, carbs, protein) {
     fat,
     carbs,
     protein,
+    icon,
   };
 }
 
@@ -81,11 +84,111 @@ const Avataricon = [
 ];
 
 const rows = [
-  createData(1, "Fixing Critical Bugs", Avataricon, 16.0, 24, 6.0),
-  createData(2, "Designing Landing Page", Avataricon, 6.0, 24, 4.0),
-  createData(3, "Setting Up Analytics", Avataricon, 16.0, 49, 3.9),
-  createData(4, "Setting Up Analytics", Avataricon, 9.0, 37, 4.3),
-  createData(5, "Fixing UI/UX Issues", Avataricon, 0, 81, 2.0),
+  createData(
+    1,
+    "Fixing Critical Bugs",
+    Avataricon,
+    <ProgressBar />,
+    <Typography
+      sx={{
+        background: "#DCE4FF",
+        color: "rgb(84, 111, 255)",
+        borderRadius: "20px",
+        fontSize: "14px",
+        position: "relative",
+        left: ".5rem",
+        wordWrap: "nowrap",
+      }}
+    >
+      InProgress
+    </Typography>,
+    "2 Days",
+    <MoreHorizIcon />
+  ),
+  createData(
+    2,
+    "Designing Landing Page",
+    Avataricon,
+    <ProgressBar />,
+    <Typography
+      sx={{
+        background: "#D5E8DD",
+        color: "rgb(46, 139, 87)",
+        borderRadius: "20px",
+        fontSize: "14px",
+        position: "relative",
+        left: ".5rem",
+        wordWrap: "nowrap",
+      }}
+    >
+      Completed
+    </Typography>,
+    "3 Hours",
+    <MoreHorizIcon />
+  ),
+  createData(
+    3,
+    "Setting Up Analytics",
+    Avataricon,
+    <ProgressBar />,
+    <Typography
+      sx={{
+        background: "#D5E8DD",
+        color: "rgb(46, 139, 87)",
+        borderRadius: "20px",
+        fontSize: "14px",
+        position: "relative",
+        left: ".5rem",
+        wordWrap: "nowrap",
+      }}
+    >
+      Completed
+    </Typography>,
+    "5 Hours",
+    <MoreHorizIcon />
+  ),
+  createData(
+    4,
+    "Setting Up Analytics",
+    Avataricon,
+    <ProgressBar />,
+    <Typography
+      sx={{
+        background: "#DCE4FF",
+        color: "rgb(84, 111, 255)",
+        borderRadius: "20px",
+        fontSize: "14px",
+        position: "relative",
+        left: ".5rem",
+        wordWrap: "nowrap",
+      }}
+    >
+      InProgress
+    </Typography>,
+    "4 Days",
+    <MoreHorizIcon />
+  ),
+  createData(
+    5,
+    "Fixing UI/UX Issues",
+    Avataricon,
+    <ProgressBar />,
+    <Typography
+      sx={{
+        background: "#FFFFCC",
+        color: "rgb(204, 141, 67)",
+        borderRadius: "20px",
+        fontSize: "14px",
+        position: "relative",
+        left: ".5rem",
+        wordWrap: "nowrap",
+      }}
+    >
+      Pendig
+    </Typography>,
+    "5 Days",
+    <MoreHorizIcon />
+  ),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -134,6 +237,12 @@ const headCells = [
     numeric: true,
     disablePadding: false,
     label: "Time Left",
+  },
+  {
+    id: "icon",
+    numeric: true,
+    disablePadding: false,
+    label: <MoreHorizIcon />,
   },
 ];
 
@@ -378,6 +487,7 @@ export default function OverViewTable() {
                       id={labelId}
                       scope="row"
                       padding="none"
+                      sx={{ color: "#73747B", fontWeight: "bold" }}
                     >
                       {row.name}
                     </TableCell>
@@ -395,7 +505,13 @@ export default function OverViewTable() {
                     </TableCell>
                     <TableCell align="center">{row.fat}</TableCell>
                     <TableCell align="center">{row.carbs}</TableCell>
-                    <TableCell align="center">{row.protein}</TableCell>
+                    <TableCell
+                      align="center"
+                      sx={{ fontWeight: "500", fontSize: "0.875rem" }}
+                    >
+                      {row.protein}
+                    </TableCell>
+                    <TableCell align="center">{row.icon}</TableCell>
                   </TableRow>
                 );
               })}
