@@ -33,9 +33,9 @@ const DateCard = () => {
   }, []);
 
   return (
-    <main className=" p-5 mt-[100px] w-full">
-      <Card className="p-6 mb-5 card">
-        <div className="flex justify-between items-center mb-6">
+    <section className="fixed overflow-y-scroll m-4 flex flex-col justify-center items-center w-[30%] right-0 mt-[100px]  overview__scroll">
+      <Card className="p-6 m-4 mb-5 card w-[100%]">
+        <div className="flex justify-between items-center mb-6 w-full">
           <ArrowBackIosIcon fontSize="small" />
           <h1 className="font-semibold">October 2024</h1>
           <ArrowForwardIosIcon fontSize="small" />
@@ -65,6 +65,7 @@ const DateCard = () => {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
+                className=""
               >
                 {week.date}
               </h1>
@@ -72,8 +73,8 @@ const DateCard = () => {
           ))}
         </div>
       </Card>
-      <TodayTask/>
-    </main>
+      <TodayTask />
+    </section>
   );
 };
 

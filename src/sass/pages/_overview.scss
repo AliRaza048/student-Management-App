@@ -47,8 +47,30 @@
             background-color: #FFFFFF;
         }
     }
-    .border{
+    &__border{
         border: 0.6px solid #eeeef1;
+    }
+    &__dailytask{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        color: black;
+        background-color: #F5F5F7;
+        border-radius: 8px;
+    }
+    &__button{
+         background-color: #546FFF !important;
+         color: white !important;
+         width: 100% !important;
+         font-weight: 600 !important;
+         border-radius: 10px !important;
+         padding: 9px !important;
+    }
+    &__scroll{
+        overflow-y: scroll ;
+        overflow-x: hidden;
     }
 }
 

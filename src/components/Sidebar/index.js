@@ -51,7 +51,7 @@ const Sidebar = () => {
   };
 
   return (
-    <section className=" bg-white flex flex-col  gap-2 fixed p-6 w-62 h-screen sidebar">
+    <section className="bg-white flex flex-col gap-2 fixed p-6 w-62 h-screen sidebar">
       {sidebarItems.map((item) => (
         <aside
           className="flex p-5 gap-2 text-textColor font-semibold cursor-pointer items-center"
