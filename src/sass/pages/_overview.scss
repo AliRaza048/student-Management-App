@@ -4,7 +4,7 @@
         &__runningTask {
             background-color: #141522;
             color: white;
-            margin-top: 5rem;
+            margin-top: 6rem;
         }
         &__borderCircle {
             width: 100%;
@@ -47,8 +47,23 @@
             background-color: #FFFFFF;
         }
     }
+    .border{
+        border: 0.6px solid #eeeef1;
+    }
 }
 
+.week{
+    margin: 0px;
+    font-size: 0.875rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    line-height: 1.43;
+    color: rgb(20, 21, 34);
+    font-weight: 500;
+}
+.card{
+    box-shadow: none !important;
+    border-radius: 10px !important;
+}
 .css-eglki6-MuiLinearProgress-root {
     height: 10px !important;
     border-radius: 10px !important;

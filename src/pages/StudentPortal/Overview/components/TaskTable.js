@@ -1,6 +1,6 @@
 import React from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import OverViewTable from "../OverViewTable";
+import OverViewTable from "./OverViewTable";
 
 const TaskTable = () => {
   return (

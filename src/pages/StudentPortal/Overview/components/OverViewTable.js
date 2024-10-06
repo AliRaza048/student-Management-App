@@ -22,7 +22,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import { Avatar } from "@mui/material";
-import ProgressBar from "./components/ProgressBar";
+import ProgressBar from "./ProgressBar";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 function createData(id, name, calories, fat, carbs, protein, icon) {
@@ -39,7 +39,7 @@ function createData(id, name, calories, fat, carbs, protein, icon) {
 
 const Avataricon = [
   <Avatar
-    src={require("../../../assets/avatar1-BitUNrbl.png")}
+    src={require("../../../../assets/avatar1-BitUNrbl.png")}
     sx={{
       width: "20px",
       height: "20px",
@@ -48,14 +48,14 @@ const Avataricon = [
     }}
   />,
   <Avatar
-    src={require("../../../assets/avatar2-4Zw0wyKV.png")}
+    src={require("../../../../assets/avatar2-4Zw0wyKV.png")}
     sx={{
       width: "20px",
       height: "20px",
     }}
   />,
   <Avatar
-    src={require("../../../assets/avatar3-CQVfZJmL.png")}
+    src={require("../../../../assets/avatar3-CQVfZJmL.png")}
     sx={{
       width: "20px",
       height: "20px",
@@ -64,7 +64,7 @@ const Avataricon = [
     }}
   />,
   <Avatar
-    src={require("../../../assets/avatar4-UQqyHlpd.png")}
+    src={require("../../../../assets/avatar4-UQqyHlpd.png")}
     sx={{
       width: "20px",
       height: "20px",
@@ -73,7 +73,7 @@ const Avataricon = [
     }}
   />,
   <Avatar
-    src={require("../../../assets/avatar5-Dut-0EdJ.png")}
+    src={require("../../../../assets/avatar5-Dut-0EdJ.png")}
     sx={{
       width: "20px",
       height: "20px",

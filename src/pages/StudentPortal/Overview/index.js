@@ -12,6 +12,7 @@ import StarIcon from "@mui/icons-material/Star";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import UpComingTask from "./components/UpComingTask";
 import TaskTable from "./components/TaskTable";
+import DateCard from "./components/DateCard";
 const Overview = () => {
   const teachersData = [
     {
@@ -96,8 +97,8 @@ const Overview = () => {
   ];
   return (
     <Page>
-      <main className="ml-left overview">
-        <aside className=" p-6 w-7/12	 overview__containerOne">
+      <main className=" flex ml-left overview">
+        <aside className="p-6  w-7/12 overview__containerOne">
           <section className="flex gap-8 rounded-lg mb-6	overview__containerOne__runningTask">
             <div className=" p-4 font-medium">
               <h1 className="text-lg	">Running Task</h1>
@@ -163,6 +164,7 @@ const Overview = () => {
           <UpComingTask/>
           <TaskTable/>
         </aside>
+        <DateCard/>
       </main>
     </Page>
   );
