@@ -73,7 +73,7 @@ const TodayTask = () => {
   ];
 
   return (
-    <Card className="p-6 m-0 w-[100%] card ">
+    <Card className="p-6 w-[100%] card ">
       <div className="flex justify-between mb-4">
         <h1 className="text-base font-bold">Today Task</h1>
         <MoreHorizIcon />
@@ -108,7 +108,7 @@ const TodayTask = () => {
           UI / UX Designer
         </h1>
       </div>
-      <div className="mb-14" >
+      <div className="mb-14">
         <div className="flex items-center gap-4 mb-4">
           <h1 className="overview__dailytask">1</h1>
           <p>Understanding the tools in Figma</p>
@@ -122,8 +122,8 @@ const TodayTask = () => {
           <p>Design a mobile application with figma</p>
         </div>
       </div>
-      <div className="w-full flex justify-center" >
-        <Button className="overview__button" >Go To Detail</Button>
+      <div className="w-full flex justify-center">
+        <Button className="overview__button">Go To Detail</Button>
       </div>
     </Card>
   );

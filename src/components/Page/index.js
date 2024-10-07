@@ -2,12 +2,12 @@ import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const Page= ({ children }) => {
+const Page = ({ children }) => {
   return (
     <React.Fragment>
-      {<Header />}
+      <Header />
       {children}
-      {<Footer />}
+      <Footer />
     </React.Fragment>
   );
 };

@@ -33,8 +33,8 @@ const DateCard = () => {
   }, []);
 
   return (
-    <section className="fixed overflow-y-scroll m-4 flex flex-col justify-center items-center w-[30%] right-0 mt-[100px]  overview__scroll">
-      <Card className="p-6 m-4 mb-5 card w-[100%]">
+    <React.Fragment >
+      <Card className="p-6 mb-5 card w-full">
         <div className="flex justify-between items-center mb-6 w-full">
           <ArrowBackIosIcon fontSize="small" />
           <h1 className="font-semibold">October 2024</h1>
@@ -74,7 +74,7 @@ const DateCard = () => {
         </div>
       </Card>
       <TodayTask />
-    </section>
+    </React.Fragment>
   );
 };
 
