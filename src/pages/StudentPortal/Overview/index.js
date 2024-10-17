@@ -164,7 +164,7 @@ const Overview = () => {
           <UpComingTask />
           <TaskTable />
         </section>
-        <section className="sticky top-[95vh]	w-[40%] overview__scroll p-4">
+        <section className="w-[40%] ">
           <DateCard />
         </section>
       </main>

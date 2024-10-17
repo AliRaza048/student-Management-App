@@ -33,8 +33,8 @@ const DateCard = () => {
   }, []);
 
   return (
-    <React.Fragment >
-      <Card className="p-6 mb-5 card w-full">
+    <section className="sticky bottom-0 left-0 right-0 top-[100px] p-4 overview__scroll w-full">
+      <Card className="p-6 mb-5 card ">
         <div className="flex justify-between items-center mb-6 w-full">
           <ArrowBackIosIcon fontSize="small" />
           <h1 className="font-semibold">October 2024</h1>
@@ -65,7 +65,6 @@ const DateCard = () => {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
-                className=""
               >
                 {week.date}
               </h1>
@@ -74,7 +73,7 @@ const DateCard = () => {
         </div>
       </Card>
       <TodayTask />
-    </React.Fragment>
+    </section>
   );
 };
 

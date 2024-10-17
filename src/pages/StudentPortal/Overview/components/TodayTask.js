@@ -73,7 +73,7 @@ const TodayTask = () => {
   ];
 
   return (
-    <Card className="p-6 w-[100%] card ">
+    <Card className="p-6 w-[100%] card">
       <div className="flex justify-between mb-4">
         <h1 className="text-base font-bold">Today Task</h1>
         <MoreHorizIcon />
