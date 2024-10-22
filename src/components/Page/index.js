@@ -1,13 +1,11 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Header from "../Header";
-import Footer from "../Footer";
-
-const Page = ({ children }) => {
+const Page = () => {
   return (
     <React.Fragment>
       <Header />
-      {children}
-      <Footer />
+      <Outlet />
     </React.Fragment>
   );
 };

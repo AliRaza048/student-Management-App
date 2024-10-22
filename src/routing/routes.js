@@ -2,6 +2,7 @@ import Page from "../components/Page";
 import SignIn from "../pages/Authentication/SignIn";
 import SignUp from "../pages/Authentication/SignUp";
 import Overview from "../pages/StudentPortal/Overview";
+import Task from "../pages/StudentPortal/Task";
 export const routes = [
   {
     name: "signin",
@@ -16,9 +17,23 @@ export const routes = [
     isPrivate: true,
   },
   {
-    name: "overview",
+    name: "studentAdmin",
     path: "/",
-    component: Overview,
-    isPrivate: true,
+    component: Page,
+    privateRouting: "studentAdmin",
+    subRoutes: [
+      {
+        name: "overview",
+        path: "overview",
+        component: Overview,
+        isPrivate: true,
+      },
+      {
+        name: "task",
+        path: "task",
+        component: Task,
+        isPrivate: true,
+      },
+    ],
   },
 ];

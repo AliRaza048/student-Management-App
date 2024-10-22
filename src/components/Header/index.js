@@ -15,6 +15,8 @@ import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Sidebar from "../Sidebar/index"
+import MenuIcon from '@mui/icons-material/Menu';
+
 const settings = [
   {
     id: 1,
@@ -131,7 +133,6 @@ const Header = () => {
   };
 
   const handleSelectLanguage = (id) => {
-    debugger;
     const selectFalg = languageSelector.find((item) => item.id === id);
     if (id == selectFalg.id) {
       return setSelectLanguage(selectFalg.img.props.src);

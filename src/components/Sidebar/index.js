@@ -18,13 +18,13 @@ const Sidebar = () => {
       id: 1,
       name: "Overview",
       icon: <GridViewIcon />,
-      path: "/",
+      path: "overview",
     },
     {
       id: 2,
       name: "Task",
       icon: <MenuBookOutlinedIcon />,
-      path: "/task",
+      path: "task",
     },
     {
       id: 3,

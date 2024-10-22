@@ -7,11 +7,11 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         {routes.map((route) => (
-          <Route
-            path={route.path}
-            Component={route.component}
-            key={route.path}
-          />
+          <Route path={route.path} Component={route.component} key={route.path}>
+            {route.subRoutes?.map((sub) => (
+              <Route path={sub.path} Component={sub.component} key={sub.path} />
+            ))}
+          </Route>
         ))}
       </Routes>
     </BrowserRouter>
