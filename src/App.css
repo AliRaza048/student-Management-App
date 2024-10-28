@@ -147,6 +147,47 @@ h5 {
   background: white;
 }
 
+.greenInput {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid blue;
+  border-radius: 1rem;
+  padding: 0rem 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.greenInput label {
+  color: gray;
+  font-size: 13px;
+  font-weight: 600;
+}
+.greenInput__inputBox {
+  display: flex;
+  justify-content: flex-end;
+}
+.greenInput__inputBox input {
+  margin-top: 0.5rem;
+  outline: unset;
+  border: unset;
+  color: blue;
+  font-weight: 600;
+  font-size: 15px;
+  padding-right: 40px;
+  background-color: unset;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding-left: 0.5rem;
+}
+.greenInput__inputBox input::placeholder {
+  font-weight: normal;
+}
+.greenInput__inputBox__icon {
+  position: absolute;
+  color: gray;
+  margin-top: -10px;
+}
+
 .form {
   width: 400px;
 }
