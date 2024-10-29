@@ -8,22 +8,15 @@ import {
   ListItemText,
 } from "@mui/material";
 
-function DropDown({ label, options, icon }) {
-  const [selectedOptions, setSelectedOptions] = useState([]);
-
-  const handleChange = (event) => {
-    setSelectedOptions(event.target.value);
-  };
-
+function DropDown({ label, options, value, handleChange, name }) {
   return (
     <FormControl fullWidth style={{ marginBottom: "1rem" }}>
       <InputLabel>{label}</InputLabel>
       <Select
         label={label}
-        multiple
-        value={selectedOptions}
-        onChange={handleChange}
-        renderValue={(selected) => selected.join(", ")}
+        value={value}
+        name={name}
+        onChange={(e) => handleChange(e)}
       >
         {options.map((option) => (
           <MenuItem key={option.value} value={option.label}>

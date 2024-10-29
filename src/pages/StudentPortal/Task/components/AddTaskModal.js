@@ -21,7 +21,7 @@ const style = {
   p: 1,
 };
 
-export default function AddTaskModal() {
+export default function AddTaskModal({ task, setTask }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,6 +37,15 @@ export default function AddTaskModal() {
     { label: "In Progress", value: "In Progress" },
     { label: "Completed", value: "Completed" },
   ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTask({
+      ...task,
+      [name]: value,
+    });
+    console.log(task);
+  };
 
   return (
     <div>
@@ -61,14 +70,43 @@ export default function AddTaskModal() {
             <Input
               type="text"
               placeholder={"Enter Your Task"}
-              name="name"
+              name="title"
               label="Task Title"
               icon={<AddTaskIcon />}
+              value={task.title}
+              handleChange={handleChange}
             />
-            <DropDown label={"Priority Level"} options={options} />
-            <DropDown label={"Status"} options={options2} />
-            <Input type={"date"} label={"Deadline"} icon={<DateRangeIcon />} />
-            <Input type={"text"} label={"Description"} rows={4} multiline />
+            <DropDown
+              label={"Priority Level"}
+              name={"priorityLevel"}
+              options={options}
+              value={task.priorityLevel}
+              handleChange={handleChange}
+            />
+            <DropDown
+              label={"Status"}
+              name={"status"}
+              options={options2}
+              value={task.status}
+              handleChange={handleChange}
+            />
+            <Input
+              type={"date"}
+              name={"date"}
+              label={"Deadline"}
+              icon={<DateRangeIcon />}
+              value={task.date}
+              handleChange={handleChange}
+            />
+            <Input
+              type={"text"}
+              label={"Description"}
+              name={"description"}
+              rows={4}
+              multiline
+              value={task.description}
+              handleChange={handleChange}
+            />
             <BlueButton title={"Submit"} />
           </form>
         </Box>

@@ -23,6 +23,7 @@ const Input = ({
           type={type}
           placeholder={placeholder}
           multiline={multiline}
+          value={value}
           onChange={(e) => handleChange(e)}
           rows={rows}
           id="fullWidth"
