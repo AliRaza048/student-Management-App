@@ -101,7 +101,7 @@ const Form = ({ title, userData, setUserData }) => {
             <hr className="form__border"></hr>
           </div>
           <form
-            onSubmit={title == "SignIn" ? handleSignUpUser : handleloginUser}
+            // onSubmit={title == "SignIn" ? handleSignUpUser : handleloginUser}
           >
             {title == "SignIn" ? (
               <div className="flex items-center w-full p-1 mt-3 rounded-lg form__input mb-5">

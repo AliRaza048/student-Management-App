@@ -17,9 +17,9 @@ const Router = () => {
               <Route
                 path={sub.path}
                 element={
-                  <ProtectedRoute>
+                  // <ProtectedRoute>
                     <sub.component />
-                  </ProtectedRoute>
+                  // </ProtectedRoute>
                 }
                 key={sub.path}
               />
